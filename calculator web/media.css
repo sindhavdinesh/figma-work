@@ -1,0 +1,223 @@
+/* ==========================================
+   Breakpoints & Responsive Rules
+   ========================================== */
+
+/* --- Laptop / Large Tablet Breakpoint (max-width: 1200px) --- */
+@media (max-width: 1200px) {
+    .hero {
+        padding: 60px 30px;
+        gap: 30px;
+    }
+    
+    .forth-section-detail-group-card {
+        padding: 40px;
+        gap: 30px;
+    }
+}
+
+/* --- Tablet Breakpoint (max-width: 1024px) --- */
+@media (max-width: 1024px) {
+    /* Hero */
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 60px 24px;
+        min-height: auto;
+    }
+
+    .sub-hero-2 {
+        align-items: center;
+    }
+
+    .hero-pera {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-footer {
+        justify-content: center;
+    }
+
+    .sub-hero {
+        margin-top: 40px;
+    }
+    
+    /* Black Box Section */
+    .black-box {
+        padding: 60px 40px;
+    }
+
+    .black-box-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Features Grid */
+    .seventh-section-images {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 24px;
+    }
+
+    /* Business Tabs */
+    .forth-section-detail-group-card {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        padding: 30px;
+    }
+
+    .business-card-left-stack {
+        border-right: none;
+        border-bottom: 1px dashed #e5e7eb;
+        padding-right: 0;
+        padding-bottom: 30px;
+    }
+
+    .business-card-right-desc {
+        padding-left: 0;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    /* Footer */
+    footer {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        padding: 60px 40px;
+        gap: 30px;
+    }
+}
+
+/* --- Small Tablet / Mobile Breakpoint (max-width: 768px) --- */
+@media (max-width: 768px) {
+    body {
+        border: none; /* Remove debug borders on mobile */
+    }
+
+    /* Header */
+    header {
+        padding: 0 20px;
+        height: 80px;
+    }
+
+    header div input {
+        display: none; /* Hide desktop search bar on mobile */
+    }
+
+    /* Black Box */
+    .black-box {
+        padding: 40px 24px;
+        margin: 20px 10px;
+    }
+
+    .black-box h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .tennis-list-item {
+        padding: 16px;
+    }
+
+    /* Features Marquee */
+    .second-section-footer {
+        width: calc(100% - 20px);
+        margin: 30px auto 60px;
+        padding: 0 20px;
+    }
+
+    /* Favorite Apps Section */
+    .third-section {
+        width: calc(100% - 20px);
+        padding: 40px 20px;
+        min-height: 400px;
+    }
+
+    /* Business */
+    .forth-section {
+        padding: 20px;
+    }
+
+    /* Testimonial Quote */
+    .fifth-section {
+        padding: 60px 20px;
+    }
+
+    .fifth-section div:first-child {
+        gap: 12px;
+    }
+
+    /* Tweets Section */
+    .sixth-section {
+        padding: 0 20px;
+    }
+
+    .tweets-masonry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Seventh Section */
+    .seventh-section {
+        padding: 60px 20px;
+        margin: 60px 20px;
+    }
+
+    /* Footer */
+    footer {
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+    
+    .footer-div-1 {
+        grid-column: span 2;
+        align-items: center;
+        text-align: center;
+        border-bottom: 1px solid #222;
+        padding-bottom: 24px;
+        margin-bottom: 10px;
+    }
+
+    .footer-div-1-pera {
+        max-width: 100%;
+    }
+}
+
+/* --- Extra Small Mobile Breakpoint (max-width: 480px) --- */
+@media (max-width: 480px) {
+    /* Claim Username Inputs */
+    .hero-footer-div-1,
+    .seventh-section-footer-div-1 {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 20px;
+        height: 56px;
+    }
+
+    .hero-footer-div-2,
+    .seventh-section-footer-div-2 {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 20px;
+        height: 56px;
+    }
+
+    .hero-footer,
+    .seventh-section-footer {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Features Grid */
+    .seventh-section-images {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+    }
+
+    /* Footer */
+    footer {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-div-1 {
+        grid-column: span 1;
+    }
+}
