@@ -891,9 +891,36 @@ button, input, select {
     align-self: center;
   }
   
+  /* Show navbar icons and profile on mobile by scaling them down */
+  .nav-right {
+    grid-area: avatar;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px; /* reduced from 20px */
+  }
+  
+  .nav-right .icon-circle {
+    display: inline-flex; /* keep visible on mobile */
+    width: 32px; /* reduced from 44px */
+    height: 32px; /* reduced from 44px */
+  }
+  
+  .nav-right .icon-circle svg {
+    width: 16px;
+    height: 16px;
+  }
+  
   .avatar-wrapper {
-    width: 32px;
-    height: 32px;
+    width: 32px; /* reduced from 44px */
+    height: 32px; /* reduced from 44px */
+  }
+  
+  .notification-badge .badge-dot {
+    top: 0;
+    right: 0;
+    width: 8px; /* scale badge down slightly */
+    height: 8px;
   }
   
   .search-bar {
@@ -901,17 +928,9 @@ button, input, select {
     max-width: 100%;
     height: 44px;
   }
-  
-  /* Hide navbar side icons (bell, heart, settings) on small screens to match clean design */
-  .nav-right {
-    grid-area: avatar;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  
-  .nav-right .icon-circle {
-    display: none;
+
+  .search-bar input {
+    font-size: 16px; /* prevent iOS auto-zoom on input focus */
   }
   
   /* Hero banners stack */
@@ -920,9 +939,14 @@ button, input, select {
     gap: 20px;
   }
 
+  /* Hide the second hero banner on mobile to match Figma mobile layout */
+  .hero-section .hero-banner:nth-child(2) {
+    display: none;
+  }
+
   .hero-banner {
     padding: 16px 16px 0 16px;
-    min-height: 300px; /* height to accommodate stack and large car */
+    min-height: 240px; /* height to accommodate stack and large car */
     overflow: visible;
   }
   
@@ -931,25 +955,33 @@ button, input, select {
   }
 
   .banner-text h2 {
-    font-size: 22px;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 8px;
   }
   
+  /* Hide paragraph description to prevent overlap on mobile */
   .banner-text p {
+    display: none;
+  }
+  
+  /* Small button padding on mobile */
+  .hero-banner .btn {
+    padding: 8px 16px;
     font-size: 12px;
-    margin-bottom: 12px;
   }
   
   .banner-image {
     width: 85%; /* larger car on mobile */
-    max-width: 280px;
-    bottom: 8px; /* Positioned perfectly inside the card, matching Figma */
+    max-width: 260px;
+    bottom: 8px;
   }
   
   .hero-banner:hover .banner-image {
     transform: translateX(-50%) translateY(-2px) scale(1.01);
   }
   
-  /* Forms stack and line dividers removed or changed */
+  /* Booking Section Forms stack */
   .form-grid {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -972,18 +1004,27 @@ button, input, select {
     transform: rotate(90deg);
   }
   
+  .swap-btn:hover {
+    transform: rotate(90deg) scale(1.05); /* maintain rotation on hover */
+  }
+  
   .swap-btn.rotate-anim {
     transform: rotate(270deg);
+  }
+
+  .swap-btn.rotate-anim:hover {
+    transform: rotate(270deg) scale(1.05);
   }
   
   /* Popular cars scroll horizontally on small mobile screens */
   .cars-scroll-container {
     display: flex;
     overflow-x: auto;
-    padding-bottom: 12px;
     scroll-snap-type: x mandatory;
     gap: 16px;
     scrollbar-width: none; /* Hide scrollbar Firefox */
+    margin: 0 -16px; /* stretch to screen edges */
+    padding: 0 16px 12px 16px; /* align cards with content and add bottom padding for shadow */
   }
   
   .cars-scroll-container::-webkit-scrollbar {
@@ -993,17 +1034,68 @@ button, input, select {
   .cars-scroll-container .car-card {
     flex: 0 0 240px;
     scroll-snap-align: start;
-    min-height: 310px;
+    min-height: 290px;
+  }
+
+  /* Compact car cards for mobile */
+  .car-card {
+    padding: 16px;
   }
   
-  /* Recommendation cars stack vertically as a single column */
+  .car-title {
+    font-size: 16px;
+  }
+  
+  .card-media {
+    height: 100px;
+    margin: 12px 0;
+  }
+  
+  .card-info {
+    margin-bottom: 16px;
+    gap: 4px;
+  }
+  
+  .info-item {
+    font-size: 11px;
+    gap: 2px;
+  }
+  
+  .info-item svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .price {
+    font-size: 16px;
+  }
+  
+  .price-unit {
+    font-size: 11px;
+  }
+  
+  .price-old {
+    font-size: 11px;
+  }
+  
+  .car-card .btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  /* Recommendation cars stack vertically as a 2-column grid on tablet */
   .recommendation-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
   
   .recommendation-grid .car-card {
-    min-height: 315px;
+    min-height: 290px;
+  }
+
+  /* Content spacing adjustment */
+  .content-container {
+    gap: 24px;
   }
 
   /* Show more car adjustments */
@@ -1039,5 +1131,41 @@ button, input, select {
     justify-content: space-between;
     width: 100%;
     gap: 16px;
+  }
+}
+
+/* Small Mobile View (up to 490px) */
+@media screen and (max-width: 490px) {
+  .logo {
+    font-size: 20px; /* slightly smaller logo on narrow screens */
+  }
+
+  .banner-text h2 {
+    font-size: 18px;
+  }
+
+  .banner-image {
+    max-width: 220px;
+  }
+
+  /* Stacks recommended cars to single column below 490px */
+  .recommendation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer centered links for clean mobile layout */
+  .footer-bottom {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-legal {
+    justify-content: center;
+    gap: 24px;
+  }
+  
+  .footer-copyright {
+    width: 100%;
+    text-align: center;
   }
 }
